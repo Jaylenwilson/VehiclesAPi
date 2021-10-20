@@ -19,6 +19,7 @@ nextBtn.addEventListener('click', nextbtn);
 function fetchResults() {
 
 
+
     url = `${baseUrl}&page=${pageNumber}&q=${userInput.value}`;
     console.log("URL:", url)
 
@@ -35,7 +36,7 @@ function fetchResults() {
 }
 
 function displayResults(json) {
-    console.log(json.Results[0].Make_Name);
+    console.log(json.Results[3867].Make_Name);
     console.log(json.Results)
     let cars = json.Results
     const carInfo = document.getElementById('carinfo');
@@ -47,23 +48,24 @@ function displayResults(json) {
 
 
 
-
+    let input = userInput.value.toUpperCase()
     console.log(userInput.value)
-    for (let car of cars) {
+    for (let i = 0; i < 9000; i++) {
+        console.log(cars[i].Make_Name)
 
-        let vehicle = car.Make_Name
-        //console.log(vehicle);
+        // let vehicle = car.Make_Name
+        // //console.log(vehicle);
 
-        console.log(vehicle, userInput.value);
+        // console.log(input, vehicle);
 
-        if (userInput.value == vehicle) {
-            var h3 = document.createElement('h3')
-            h3.innerText = vehicle;
-            carInfo.appendChild(h3);
-        }
-        else if (userInput.value !== cars.Make_Name) {
-            return null
-        }
+        // if (input == vehicle) {
+        //     var h3 = document.createElement('h3')
+        //     h3.innerText = vehicle;
+        //     carInfo.appendChild(h3);
+        // }
+        // else if (userInput.value != cars.Make_Name) {
+        //     return null
+        // }
 
     }
 
